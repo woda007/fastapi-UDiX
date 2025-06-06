@@ -3,6 +3,7 @@ import json
 from openai import OpenAI
 from typing import List, Dict, Any
 import os
+import logging
 
 # add comment
 
@@ -72,6 +73,7 @@ async def get_instructions(request: Request):
     response = get_answer_from_openai(prompt)
 
     print(response[response.find("<answer>") + len("<answer>") : response.find("</answer>")])
+    logging.info(response[response.find("<answer>") + len("<answer>") : response.find("</answer>")])
 
     return response[response.find("<answer>") + len("<answer>") : response.find("</answer>")]
 
