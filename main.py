@@ -64,7 +64,7 @@ async def get_instructions(request: Request):
     }}
     </map json>
     <move intent>
-    {payload["instructions"]}
+    {payload["instruction"]}
     </move intent>
     """
     
