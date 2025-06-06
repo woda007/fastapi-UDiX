@@ -66,9 +66,9 @@ async def get_instructions(request: Request):
     </move intent>
     """
     
-   response = get_answer_from_openai(prompt)
+    response = get_answer_from_openai(prompt)
 
-   return answer = response[response.find("<answer>") + len("<answer>") : response.find("</answer>")]
+    return response[response.find("<answer>") + len("<answer>") : response.find("</answer>")]
 
     
     
