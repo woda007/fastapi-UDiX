@@ -1,7 +1,12 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Query, Request
+import json
+from typing import List, Dict, Any
+import os
 
 app = FastAPI()
 
-@app.get("/")
-async def root():
-    return {"greeting": "Hello, World!", "message": "Welcome to FastAPI!"}
+@app.post("/drony")
+async def get_instructions(request: Request):
+    
+    payload = await request.json()
+    print("Webhook received:", payload)
