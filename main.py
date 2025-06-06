@@ -71,6 +71,8 @@ async def get_instructions(request: Request):
     
     response = get_answer_from_openai(prompt)
 
+    print(response[response.find("<answer>") + len("<answer>") : response.find("</answer>")])
+
     return response[response.find("<answer>") + len("<answer>") : response.find("</answer>")]
 
     
