@@ -25,6 +25,7 @@ def get_answer_from_openai(question, tools=None, model="gpt-4.1-2025-04-14"):
             input=question,
         )
 
+    return response.output_text
 
 @app.post("/drony")
 async def get_instructions(request: Request):
