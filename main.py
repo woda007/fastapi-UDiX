@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi.responses import JSONResponse
 import json
 from openai import OpenAI
 from typing import List, Dict, Any
@@ -74,8 +75,9 @@ async def get_instructions(request: Request):
 
     print(response[response.find("<answer>") + len("<answer>") : response.find("</answer>")])
     logging.info(response[response.find("<answer>") + len("<answer>") : response.find("</answer>")])
-
-    return response[response.find("<answer>") + len("<answer>") : response.find("</answer>")]
+    content = response[response.find("<answer>") + len("<answer>") : response.find("</answer>")]
+    
+    return return JSONResponse(content=response_data)
 
     
     
