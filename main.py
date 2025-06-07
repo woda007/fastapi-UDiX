@@ -34,7 +34,7 @@ async def get_instructions(request: Request):
     payload = await request.json()
     print("Webhook received:", payload)
 
-    prompt =  f"""Given the following json with a map. And the following human captured move intent, 1) prepare a move plan, 2) using the move plan find what's on the target field on the map, 3) provide the final answer in the format <answer>{{"description":"whats on the map"}}</answer>Your journey always starts in position (0,0), where "znacznik" is located.
+    prompt =  f"""Given the following json with a map. And the following human captured move intent, 1) prepare a move plan, 2) using the move plan find what's on the target field on the map, 3) provide the final answer in the format <answer>{{"description": "whats on the map"}}</answer>Your journey always starts in position (0,0), where "znacznik" is located.
     <map json>
     {{
       "map": [
