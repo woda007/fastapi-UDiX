@@ -75,7 +75,7 @@ async def get_instructions(request: Request):
 
     print(response[response.find("<answer>") + len("<answer>") : response.find("</answer>")])
     logging.info(response[response.find("<answer>") + len("<answer>") : response.find("</answer>")])
-    response_data = response[response.find("<answer>") + len("<answer>") : response.find("</answer>")]
+    response_data = json.loads(response[response.find("<answer>") + len("<answer>") : response.find("</answer>")])
     
     return JSONResponse(content=response_data)
 
